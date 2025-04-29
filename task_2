@@ -1,0 +1,18 @@
+# напишите программу, которая будет извлекать даты из списка строк и преобразовывать их в единый формат YYYY-MM-DD. 
+# даты могут быть представлены в различных форматах
+
+import re 
+
+#
+patterns = [
+    re.compiler(r'(\d{2})/(\d{2})/(\d{4})'),  # формат DD/MM/YYYY
+    re.compiler(r'(\d{2})-(\d{2})-(\d{4})'),  # формат DD-MM-YYYY
+    re.compiler(r'(\d{4})\.(\d{2})\.(\d{2})'),  # формат YYYY.MM.DD
+]
+
+def normalize_date(date_str):
+    for pattern in patterns:
+        match = pattern.search(date_str)
+        if match:
+            if pattern.pattern == r'(\d{2})/(\d{2})/(\d{4})':  # DD/MM/YYYY to YYYY-MM-DD
+                return f'{natch}'
